@@ -13,8 +13,8 @@ const cors = require("cors")({origin: true});
 exports.getCubejsConfig = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
     response.send({
-      key: functions.config().cubejs.key,
-      url: functions.config().cubejs.url,
+      key: functions.config().cubejs.apikey,
+      url: functions.config().cubejs.apiurl,
     });
   });
 });
