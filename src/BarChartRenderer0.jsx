@@ -1,17 +1,12 @@
 import React from 'react';
-import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const cubejsApi = cubejs(
-  process.env.REACT_APP_CUBE_JS_API_KEY,
-  { apiUrl: process.env.REACT_APP_CUBE_JS_API_URL }
-);
-
 const colors = ['#FF6492', '#141446', '#7A77FF'];
 
-const BarChartRenderer0 = () => {
+// cubejsApi should be passed as a prop instead of being created inside this component.
+const BarChartRenderer0 = ({ cubejsApi }) => { // <- cubejsApi is now a prop
   return (
     <QueryRenderer
       query={{
@@ -25,7 +20,7 @@ const BarChartRenderer0 = () => {
           "kdd_cup_1999_dataset.count"
         ]
       }}
-      cubejsApi={cubejsApi}
+      cubejsApi={cubejsApi} // <- use the prop here
       resetResultSetOnChange={false}
       render={({ resultSet, error }) => {
         if (error) {

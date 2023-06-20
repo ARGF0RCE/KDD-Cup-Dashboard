@@ -4,14 +4,10 @@ import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const cubejsApi = cubejs(
-  process.env.REACT_APP_CUBE_JS_API_KEY,
-  { apiUrl: process.env.REACT_APP_CUBE_JS_API_URL }
-);
 
 const colors = ['#FF6492', '#141446', '#7A77FF'];
 
-const PieChartRenderer0 = () => {
+const PieChartRenderer0 = ({ cubejsApi }) => {
     return (
     <QueryRenderer
       query={{
@@ -35,7 +31,6 @@ const PieChartRenderer0 = () => {
         if (!resultSet) {
           return <Spin />;
         }
-    console.log(resultSet.toString());
         return (
           <ResponsiveContainer width="100%" height={350}>
             <PieChart>
