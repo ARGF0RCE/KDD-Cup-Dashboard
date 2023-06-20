@@ -1,5 +1,5 @@
 import React from 'react';
-import cubejs from '@cubejs-client/core';
+// import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
